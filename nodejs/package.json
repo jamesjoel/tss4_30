@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "randomstring": "^1.2.3",
+    "reverse-string": "^0.0.6"
+  }
+}
