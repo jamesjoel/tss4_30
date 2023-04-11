@@ -1,0 +1,19 @@
+{
+  "name": "exp2",
+  "version": "1.0.0",
+  "description": "this is smaple project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sample",
+    "testing",
+    "learning"
+  ],
+  "author": "james joel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
