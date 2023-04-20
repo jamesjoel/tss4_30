@@ -1,0 +1,31 @@
+<%- include("../includes/header") %>
+<div class="container my-5" style="min-height: 700px; margin-top: 80px;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form action="/student/save" method="post">
+            <h2>Student</h2>
+            <div class="form-group">
+                <label for="">Full Name</label>
+                <input autocomplete="off" type="text" name="fullname" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="">Age</label>
+                <input autocomplete="off" type="text" name="age" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="">City</label>
+                <select class="form-control" name="city">
+                    <option>Select</option>
+                    <option>Indore</option>
+                    <option>Bhopal</option>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                </select>
+            </div>
+            <br />
+            <input type="submit" value="Add" class="btn btn-primary" />
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../includes/footer") %>
