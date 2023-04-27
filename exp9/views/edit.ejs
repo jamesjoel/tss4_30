@@ -1,0 +1,31 @@
+<%- include('header') %>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2>Update Teacher</h2>
+                    <form action="/update/<%= data._id %>" method="post">
+                        <label>Name</label> : <input value="<%= data.name %>" autocomplete="off" type="text" name="name" class="form-control"/>
+                        
+                        <label>Age</label> : <input value="<%= data.age %>" autocomplete="off" type="text" name="age" class="form-control"/>
+                        
+                        <label>City</label> : <select name="city" class="form-control">
+                            <option>Select</option>
+                            <option <% if(data.city == "Indore") { %> selected  <% } %>>Indore</option>
+                            <option <% if(data.city == "Mumbai") { %> selected  <% } %>>Mumbai</option>
+                            <option <% if(data.city == "Pune") { %> selected  <% } %>>Pune</option>
+                        </select>
+                        
+                        <br />
+                        <input type="submit" value="Update" class="btn btn-success"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </body>
+</html>

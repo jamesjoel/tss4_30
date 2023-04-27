@@ -2,25 +2,30 @@
 
 
 
-        <h1>Teacher Add Page</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2>Add New Teacher</h2>
+                    <form action="/save" method="post">
+                        <label>Name</label> : <input autocomplete="off" type="text" name="name" class="form-control"/>
+                        
+                        <label>Age</label> : <input autocomplete="off" type="text" name="age" class="form-control"/>
+                        
+                        <label>City</label> : <select name="city" class="form-control">
+                            <option>Select</option>
+                            <option>Indore</option>
+                            <option>Mumbai</option>
+                            <option>Pune</option>
+                        </select>
+                        
+                        <br />
+                        <input type="submit" class="btn btn-success"/>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
-        <form action="/save" method="post">
-            Name : <input type="text" name="name"/>
-            <br />
-            <br />
-            Age : <input type="text" name="age"/>
-            <Br />
-            <Br />
-            City : <select name="city">
-                <option>Select</option>
-                <option>Indore</option>
-                <option>Mumbai</option>
-                <option>Pune</option>
-            </select>
-            <Br />
-            <br />
-            <input type="submit" />
-        </form>
+        
     </body>
 </html>

@@ -66,8 +66,33 @@ app.get("/delete/:a", async (req, res)=>{
     res.redirect("/list");
 })
 
+app.get("/edit/:a", async(req, res)=>{
+    var x = req.params.a;
+    var result = await Teacher.find({ _id : x });
+    var data = result[0];
+
+    var obj = {data};
+    res.render("edit", obj);
+})
+
+app.post("/update/:a", async (req, res)=>{
+    var x = req.params.a;
+    
+    // console.log(req.body);
+    await Teacher.updateMany({ _id : x }, req.body);
+    res.redirect("/list");
+})
+
 
 /*
+
+    var result = await Student.find({ _id : 14571254 })
+
+
+
+
+
+
     res.render()
     res.sendFile()
     res.redirect()
