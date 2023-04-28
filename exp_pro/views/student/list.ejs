@@ -1,0 +1,36 @@
+<%- include("../includes/header") %>
+<div class="container my-5" style="min-height: 700px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>List of All Students</h4>
+            <% if(result.length==0){ %>
+                <div class="alert alert-danger">No Record Found !</div>
+            <% }else{ %>
+
+            
+            <table class="table table-info">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+                <% result.forEach((x, n)=>{ %>
+                    <tr>
+                        <td><%= n+1 %></td>
+                        <td><%= x.fullname %></td>
+                        <td><%= x.age %></td>
+                        <td><%= x.city %></td>
+                        <td><a href="/student/delete/<%= x._id %>" class="btn btn-sm btn-danger">Delete</a></td>
+                        <td><a href="/student/edit/<%= x._id %>" class="btn btn-sm btn-info">Edit</a></td>
+                    </tr>
+                <% }) %>
+
+            </table>
+            <% } %>
+        </div>
+    </div>
+</div>
+<%- include("../includes/footer") %>
