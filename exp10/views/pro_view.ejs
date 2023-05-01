@@ -1,0 +1,26 @@
+<html>
+    <Head>
+
+    </Head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/product">Product</a>
+        
+        <h1>List of All Product</h1>
+        <table border="1" align="center" width="700">
+            <tr>
+                <th>S.No.</th>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+            <% result.forEach((x, n)=>{ %>
+                <tr>
+                    <td><%= n+1 %></td>
+                    <td><%= x.title %></td>
+                    <td><%= x.price %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </body>
+</html>

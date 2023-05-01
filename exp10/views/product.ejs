@@ -1,0 +1,36 @@
+<html>
+    <Head>
+
+    </Head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/product">Product</a>
+        
+        <form action="/product/save" method="post">
+            Title <input type="text" name="title"/>
+            <br />
+            <br />
+            Price <input type="text" name="price"/>
+            <br />
+            <Br />
+            Detail <textarea name="detail"></textarea>
+            <br />
+            <br />
+            Category <select name="category">
+                <option>Select</option>
+                <option>Mobile</option>
+                <option>Fashion</option>
+                <option>Electronics</option>
+                <option>Home Appliance</option>
+            </select>
+            <br />
+            <Br/>
+            <input type="submit" value="Add" />
+        </form>
+        <br />
+        <br />
+        <br />
+        <a href="/product/view">View All Product</a>
+    </body>
+</html>
