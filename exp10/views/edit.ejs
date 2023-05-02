@@ -1,0 +1,40 @@
+<html>
+    <Head>
+
+    </Head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/product">Product</a>
+        
+        <h2>Edit Your Product</h2>
+
+        <form action="/product/update/<%= result._id %>" method="post">
+            Title <input type="text" name="title" value="<%= result.title %>"/>
+            <br />
+            <br />
+            Price <input type="text" name="price" value="<%= result.price %>"/>
+            <br />
+            <Br />
+            Detail <textarea name="detail"><%= result.detail %></textarea>
+            <br />
+            <br />
+            Category <select name="category">
+                <option>Select</option>
+                <option <% if(result.category == "Mobile"){ %> selected <% } %> >Mobile</option>
+                <option <% if(result.category == "Fashion"){ %> selected <% } %>>Fashion</option>
+                <option <% if(result.category == "Electronics"){ %> selected <% } %>>Electronics</option>
+                <option <% if(result.category == "Home Appliance"){ %> selected <% } %>>Home Appliance</option>
+            </select>
+            <br />
+            <Br/>
+            <input type="submit" value="Update" />
+        </form>
+        <br />
+        <br />
+        <br />
+       
+    </body>
+</html>
+
+
