@@ -1,21 +1,14 @@
 const routes = require("express").Router();
 const mongoose = require("mongoose");
+const Student = require("../models/Student");
+const City = require("../models/City");
 
-// 1. connect to mongodb
-mongoose.connect("mongodb://0.0.0.0:27017/tss4_30");
 
-// 2. create a Schema
-var StudentSchema = mongoose.Schema({
-    fullname : String,
-    age : Number,
-    city : String
-})
 
-// 3. create a model
-var Student = mongoose.model("student", StudentSchema);
-
-routes.get("/", (req, res)=>{
-    res.render("student/index")
+routes.get("/", async (req, res)=>{
+    var result = await City.find();
+    var obj = {result};
+    res.render("student/index", obj)
 })
 
 routes.post("/save", async(req, res)=>{
@@ -44,8 +37,9 @@ routes.get("/delete/:id", async (req, res)=>{
 routes.get("/edit/:id", async(req, res)=>{
     var x = req.params.id;
     var result = await Student.find({ _id : x });
+    var city = await City.find();
     var data = result[0];
-    var obj = {data};
+    var obj = {data, city};
     res.render("student/edit", obj);
 })
 
