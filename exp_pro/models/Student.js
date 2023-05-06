@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 var StudentSchema = mongoose.Schema({
     fullname : String,
     age : Number,
-    city : String
+    city : String,
+    subject : String
 })
 
 // 3. create a model

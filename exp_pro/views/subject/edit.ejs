@@ -1,0 +1,19 @@
+<%- include('../includes/header') %>
+<div class="container my-5" style="min-height: 700px;">
+    <form action="/subject/update/<%= data._id %>" method="post">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Update Subject</h3>
+            <div class="form-group">
+                <label>Subject Name</label>
+                <input type="text" class="form-control" value="<%= data.name %>" name="name" />
+
+            </div>
+            <br />
+            <br />
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </div>
+    </form>
+</div>
+<%- include('../includes/footer') %>

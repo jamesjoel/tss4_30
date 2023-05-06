@@ -2,12 +2,14 @@ const routes = require("express").Router();
 const mongoose = require("mongoose");
 const Student = require("../models/Student");
 const City = require("../models/City");
+const Subject = require("../models/Subjects");
 
 
 
 routes.get("/", async (req, res)=>{
     var result = await City.find();
-    var obj = {result};
+    var result2 = await Subject.find();
+    var obj = {result, result2};
     res.render("student/index", obj)
 })
 
@@ -38,8 +40,9 @@ routes.get("/edit/:id", async(req, res)=>{
     var x = req.params.id;
     var result = await Student.find({ _id : x });
     var city = await City.find();
+    var result2 = await Subject.find();
     var data = result[0];
-    var obj = {data, city};
+    var obj = {data, city, result2};
     res.render("student/edit", obj);
 })
 

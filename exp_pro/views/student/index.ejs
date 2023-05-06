@@ -12,6 +12,20 @@
                 <label for="">Age</label>
                 <input autocomplete="off" type="text" name="age" class="form-control" />
             </div>
+
+            <div class="form-group">
+                <label>Subject</label>
+                <select class="form-control" name="subject">
+                    <option>Select</option>
+                    <%
+                    result2.forEach((x)=>{ %>
+                        <option><%= x.name %></option>
+                    <% 
+                    }) 
+                    %>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="">City</label>
                 <select class="form-control" name="city">

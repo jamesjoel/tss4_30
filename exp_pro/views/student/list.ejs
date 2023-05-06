@@ -14,6 +14,7 @@
                     <th>Name</th>
                     <th>Age</th>
                     <th>City</th>
+                    <th>Subject</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
@@ -23,6 +24,7 @@
                         <td><%= x.fullname %></td>
                         <td><%= x.age %></td>
                         <td><%= x.city %></td>
+                        <td><%= x.subject %></td>
                         <td><a href="/student/delete/<%= x._id %>" class="btn btn-sm btn-danger">Delete</a></td>
                         <td><a href="/student/edit/<%= x._id %>" class="btn btn-sm btn-info">Edit</a></td>
                     </tr>
