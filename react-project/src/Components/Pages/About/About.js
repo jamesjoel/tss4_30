@@ -1,23 +1,29 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Shipping from '../../Shared/Shipping'
 import axios from 'axios';
+import API from '../../../Constants/ApiUrl';
 
 const About = () => {
 
   let [data, setData] = useState([]);
 
-  let getData = ()=>{
-    axios.get("http://localhost:3001/api/demo").then((result)=>{
+  useEffect(()=>{
+    axios.get(`${API}demo`).then((result)=>{
       console.log(result.data);
       setData(result.data);
     })
-  }
+  }, [])
+  
+    
+
+    
+  
   return (
     <>
-      <div className="popular-items section-padding30">
+      <div  className="popular-items section-padding30">
             <div className="container">
               
-              <button onClick={getData} className='btn btn-primary'>OK</button>
+              {/* <button onClick={getData} className='btn btn-primary'>OK</button> */}
               {
                   data.length > 0 ?(
 
@@ -59,7 +65,11 @@ const About = () => {
 export default About
 /*
 
-  { data.length > 0 ? (<h1>hello</h1>) : '' }
+  let a = "hello";
 
+  let b = a+"rohit";
 
+  let b = `${a}rohit`
 */
+
+

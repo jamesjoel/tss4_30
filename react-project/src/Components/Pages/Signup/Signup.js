@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import API from '../../../Constants/ApiUrl'
 
 const Signup = () => {
 
+    let navigate = useNavigate();
     let [user, setUser] = useState({
         name : "",
         email : "",
@@ -15,9 +18,11 @@ const Signup = () => {
     });
    
     let save = ()=>{
-       axios.post("http://localhost:3001/api/signup", user).then(result=>{
+       axios.post(`${API}signup`, user).then(result=>{
         if(result.data.success){
-                console.log("success -----------")
+               // console.log("success -----------")
+
+               navigate("/login");
         }
        })
     }
