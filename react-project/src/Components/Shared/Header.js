@@ -1,7 +1,20 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+
+    let [isLoggedIn, setIsLoggedIn] = useState(false);
+    let [name, setName] = useState("");
+
+    useEffect(()=>{
+        if(localStorage.getItem("token"))
+        {
+            setIsLoggedIn(true);
+            setName(localStorage.getItem("displayname"));
+        }
+    },[])
+
+
   return (
     <>
     <header>
@@ -21,9 +34,24 @@ const Header = () => {
                                <li><NavLink to="/">Home</NavLink></li>
                                <li><NavLink to="/about">about</NavLink></li>
                                <li><NavLink to="/contact">contact</NavLink></li>
-                               <li><NavLink to="/signup">Signup</NavLink></li>
-                               <li><NavLink to="/login">Login</NavLink></li>
                                <li><NavLink to="/help">Help</NavLink></li>
+                                {
+                                    isLoggedIn ? (
+                                        <>
+                                        <li><NavLink to="/profile">Profile</NavLink></li>
+                                        <li><NavLink to="/logout">Logout</NavLink></li>
+                                        </>
+                                    ) : (
+                                        <>
+                                        <li><NavLink to="/signup">Signup</NavLink></li>
+                                        <li><NavLink to="/login">Login</NavLink></li>
+                                        </>
+                                    )
+                                }
+                                
+                               
+
+
                                
                                {/* <li className="hot"><a href="#">Latest</a>
                                    <ul className="submenu">
@@ -38,12 +66,17 @@ const Header = () => {
                    
                    <div className="header-right">
                        <ul>
+                            {
+                                name !="" ? (
+                                    <li> <a href="login.html" style={{color : "#fff", backgroundColor : "#FF2424", padding : "5px"}}>{name}</a></li>
+                                ) : '' 
+                            }
+                           
                            <li>
                                <div className="nav-search search-switch">
                                    <span className="flaticon-search"></span>
                                </div>
                            </li>
-                           <li> <a href="login.html"><span className="flaticon-user"></span></a></li>
                            <li><a href="cart.html"><span className="flaticon-shopping-cart"></span></a> </li>
                        </ul>
                    </div>

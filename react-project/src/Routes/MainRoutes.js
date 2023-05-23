@@ -6,6 +6,8 @@ import Contact from '../Components/Pages/Contact/Contact'
 import Signup from '../Components/Pages/Signup/Signup'
 import Login from '../Components/Pages/Login/Login'
 import Help from '../Components/Pages/Help/Help'
+import Logout from '../Components/Pages/Logout/Logout'
+import Profile from '../Components/Pages/Profile/Profile'
 
 const MainRoutes = () => {
   return (
@@ -17,6 +19,8 @@ const MainRoutes = () => {
             <Route path='signup' element={<Signup />} />
             <Route path='login' element={<Login />} />
             <Route path='help' element={<Help />} />
+            <Route path='logout' element={<Logout />} />
+            <Route path='profile' element={<Profile />} />
         </Routes>
     </>
   )

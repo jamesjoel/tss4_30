@@ -13,7 +13,7 @@ routes.post("/", async (req, res)=>{
         {
             var obj = { name : result[0].name, email : result[0].email, id : result[0]._id };
             var token = jwt.sign(obj, "the stepping stone");
-            res.send({success : true, token : token });
+            res.send({success : true, token : token, dispname : result[0].name });
         }else{
             res.send({success : false, type : 2});
         }

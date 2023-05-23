@@ -27,6 +27,7 @@ const Login = () => {
                 {
                     let token = result.data.token;
                     localStorage.setItem("token", token);
+                    localStorage.setItem("displayname", result.data.dispname)
                     navigate("/");
                 }
     
