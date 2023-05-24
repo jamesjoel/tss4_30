@@ -7,11 +7,9 @@ import MainRoutes from './Routes/MainRoutes'
 const App = () => {
   return (
     <>
-      <Header />
-      <main>
+      
           <MainRoutes />  
-      </main>
-      <Footer />
+      
     </>
   )
 }
