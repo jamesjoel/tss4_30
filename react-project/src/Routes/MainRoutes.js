@@ -15,6 +15,8 @@ import AdminLayout from '../Layout/AdminLayout'
 import Dashbaord from '../Components/AdminPages/Dashboard'
 import Category from '../Components/AdminPages/Category'
 import Prodcut from '../Components/AdminPages/Product'
+import AdminLogin from '../Components/AdminPages/AdminLogin'
+import AdminLogout from '../Components/AdminPages/AdminLogout'
 
 const MainRoutes = () => {
   return (
@@ -31,9 +33,11 @@ const MainRoutes = () => {
                     <Route path='profile' element={<Profile />} />
               </Route>
               <Route path='admin' element={<AdminLayout />}>
-                  <Route path="" element={<Dashbaord />} />
+                  <Route path="" element={<AdminLogin />} />
+                  <Route path="dashboard" element={<Dashbaord />} />
                   <Route path="product" element={<Prodcut />} />
                   <Route path="category" element={<Category />} />
+                  <Route path="logout" element={<AdminLogout />} />
               </Route>
         </Routes>
     </>
