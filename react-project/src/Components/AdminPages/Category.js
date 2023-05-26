@@ -16,7 +16,7 @@ const Category = () => {
     initialValues : { name : ""},
     onSubmit : (formdata)=>{
       axios.post(`${API}category`, formdata).then(result=>{
-        console.log(result.data);
+        navigate("/admin/category/list")
       })
     }
   })

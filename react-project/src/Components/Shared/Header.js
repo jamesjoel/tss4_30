@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
+import API from '../../Constants/ApiUrl'
 
 const Header = () => {
 
     let [isLoggedIn, setIsLoggedIn] = useState(false);
     let [name, setName] = useState("");
+    let [allCate, setAllCate] = useState([]);
 
     useEffect(()=>{
         if(localStorage.getItem("token"))
@@ -12,6 +15,11 @@ const Header = () => {
             setIsLoggedIn(true);
             setName(localStorage.getItem("displayname"));
         }
+
+        axios.get(`${API}category`).then(result=>{
+            setAllCate(result.data);
+        })
+
     },[])
 
 
@@ -34,7 +42,18 @@ const Header = () => {
                                <li><NavLink to="/">Home</NavLink></li>
                                <li><NavLink to="/about">about</NavLink></li>
                                <li><NavLink to="/contact">contact</NavLink></li>
-                               <li><NavLink to="/help">Help</NavLink></li>
+                               <li className="hot"><NavLink to="#">Category</NavLink>
+                                   <ul className="submenu">
+                                    {
+                                        allCate.map(x=>{
+                                            return(
+                                                <li key={x._id}><NavLink to=""> {x.name}</NavLink></li>
+                                            )
+                                        })
+                                    }
+                                       
+                                   </ul>
+                               </li> 
                                 {
                                     isLoggedIn ? (
                                         <>

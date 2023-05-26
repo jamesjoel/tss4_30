@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom'
+import './Header.css'
 
 const Header = () => {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,10 +26,27 @@ const Header = () => {
           {
             isLoggedIn ? (<div className="navbar-nav">
             
-            <NavLink className="nav-item nav-link" to="/admin/dashboard">Dashboard</NavLink>
-            <NavLink className="nav-item nav-link" to="/admin/product">Products</NavLink>
-            <NavLink className="nav-item nav-link" to="/admin/category">Category</NavLink>
-            <NavLink className="nav-item nav-link" to="/admin/logout">Logout</NavLink>
+                <ul className='nav'>
+                  <li className='nav-item'>
+                    <NavLink className="nav-item nav-link" to="/admin/dashboard">Dashboard</NavLink>
+                  </li>
+                  <li className='nav-item'>
+                    <NavLink className="nav-item nav-link" to="/admin/product">Products</NavLink>
+
+                  </li>
+                  <li className='nav-item dropdown'>
+                    <NavLink className='nav-link dropdown-toggle' to="/admin/category" data-toggle="dropdown">Category</NavLink>
+                    <div className='dropdown-menu'>
+
+                      <NavLink className="dropdown-item" to="/admin/category/list">List</NavLink>
+                      <NavLink className="dropdown-item" to="/admin/category/add">Add</NavLink>
+                    </div>
+                  </li>
+                  <li className='nav-item'>
+                  <NavLink className="nav-item nav-link" to="/admin/logout">Logout</NavLink>
+                  </li>
+                  
+                </ul>
             
             </div>) : ''
           }
@@ -40,3 +58,11 @@ const Header = () => {
 }
 
 export default Header
+
+/*
+
+
+            
+            
+
+*/
