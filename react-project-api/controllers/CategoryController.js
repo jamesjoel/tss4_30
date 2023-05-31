@@ -10,4 +10,11 @@ routes.get("/", async(req, res)=>{
     res.send(result);
 })
 
+routes.delete("/:a", async(req, res)=>{
+    var x = req.params.a;
+
+    await Category.deleteMany({ _id : x});
+    res.send({ success : true });
+})
+
 module.exports = routes;

@@ -13,6 +13,22 @@ const CategoryList = () => {
         })
     }, [])
 
+
+
+    let deleteCate = (obj)=>{
+        
+        axios.delete(`${API}category/${obj._id}`).then(result=>{
+            setAllCate(()=>{
+                return allCate.filter(x=> x != obj)
+                
+            });
+
+            
+
+
+        })
+    }
+
   return (
     <>
         <div className='container'>
@@ -25,6 +41,7 @@ const CategoryList = () => {
                             <tr>
                                 <th>S.No.</th>
                                 <th>Category Name</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +51,8 @@ const CategoryList = () => {
                                         <tr key={n}>
                                             <td>{n+1}</td>
                                             <td>{x.name}</td>
+                                            <td><button onClick={()=>deleteCate(x)} className='btn btn-sm btn-danger'>Delete</button></td>
+                                            {/* <td><button onClick={deleteCate()} className='btn btn-sm btn-danger'>Delete</button></td> */}
                                         </tr>
                                     )
                                 })
@@ -52,3 +71,19 @@ const CategoryList = () => {
 }
 
 export default CategoryList
+
+/*
+    let x = "black";
+    let arr = ["red", "green", "blue", "yellow", "pink", "black", "white"];
+
+    let n = arr.indexOf(x);
+
+    arr.splice(n, 1);
+
+    arr.push("gray"); // add at the end
+    arr.unshift("gary"); // add at the beg
+
+    arr[3] = "gray"; // 
+
+*/
+
