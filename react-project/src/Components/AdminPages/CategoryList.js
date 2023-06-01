@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import axios, { all } from 'axios'
 import API from '../../Constants/ApiUrl';
 const CategoryList = () => {
 
+    let closeBtn = useRef();
     let [allCate, setAllCate] = useState([]);
+    let [cate, setCate] = useState();
     useEffect(()=>{
         axios.get(`${API}category`).then(result=>{
             // console.log(result);
@@ -14,18 +16,18 @@ const CategoryList = () => {
     }, [])
 
 
+    let askDelete = (obj)=>{
+        setCate(obj);
+    }
 
-    let deleteCate = (obj)=>{
+    let deleteCate = ()=>{
         
-        axios.delete(`${API}category/${obj._id}`).then(result=>{
+        axios.delete(`${API}category/${cate._id}`).then(result=>{
             setAllCate(()=>{
-                return allCate.filter(x=> x != obj)
-                
+                closeBtn.current.click();
+                return allCate.filter(x=> x != cate)
+
             });
-
-            
-
-
         })
     }
 
@@ -51,7 +53,7 @@ const CategoryList = () => {
                                         <tr key={n}>
                                             <td>{n+1}</td>
                                             <td>{x.name}</td>
-                                            <td><button onClick={()=>deleteCate(x)} className='btn btn-sm btn-danger'>Delete</button></td>
+                                            <td><button onClick={()=>askDelete(x)} data-toggle="modal" data-target="#delModal" className='btn btn-sm btn-danger'>Delete</button></td>
                                             {/* <td><button onClick={deleteCate()} className='btn btn-sm btn-danger'>Delete</button></td> */}
                                         </tr>
                                     )
@@ -63,6 +65,24 @@ const CategoryList = () => {
                     }
                 
                     
+                </div>
+            </div>
+        </div>
+
+
+        <div className='modal fade' id='delModal'>
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className='modal-header'>
+                        <h3>Delete Category</h3>
+                    </div>
+                    <div className='modal-body'>
+                        <p>Are You sure want to delete this categroy ?</p>
+                    </div>
+                    <div className='modal-footer'>
+                        <button className='btn btn-info' ref={closeBtn} data-dismiss="modal">Close</button>
+                        <button className='btn btn-danger' onClick={deleteCate}>Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

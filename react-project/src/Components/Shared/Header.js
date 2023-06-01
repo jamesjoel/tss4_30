@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import API from '../../Constants/ApiUrl'
+import LiTag from './LiTag'
 
 const Header = () => {
 
@@ -47,7 +48,7 @@ const Header = () => {
                                     {
                                         allCate.map(x=>{
                                             return(
-                                                <li key={x._id}><NavLink to=""> {x.name}</NavLink></li>
+                                                <LiTag list={x}/>
                                             )
                                         })
                                     }

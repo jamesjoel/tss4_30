@@ -2,8 +2,14 @@ import React, {useState, useEffect} from 'react'
 import Shipping from '../../Shared/Shipping'
 import axios from 'axios';
 import API from '../../../Constants/ApiUrl';
+import Box from '../../Shared/Box';
 
 const About = () => {
+
+  let info = {
+    city : "Bhopal",
+    para : "sdfg sdfg sdfg sdfg sdfgsdfg"
+  }
 
   let [data, setData] = useState([]);
 
@@ -22,6 +28,7 @@ const About = () => {
     <>
       <div  className="popular-items section-padding30">
             <div className="container">
+              <Box hello={info}/>
               
               {/* <button onClick={getData} className='btn btn-primary'>OK</button> */}
               {

@@ -1,13 +1,46 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
+
+  let [data, setData] = useState([
+    {
+      id : 1,
+      name : "Rohit"
+    },
+    {
+      id : 2,
+      name : "amar"
+    },
+    {
+      id : 3,
+      name : "vijay"
+    }
+  ])
+
   let navigate = useNavigate();
+  let a = useRef();
   useEffect(()=>{
     if(! localStorage.getItem('nimda')){
       navigate("/");
     }
   },[])
+
+  let demo1 = ()=>{
+    console.log("****************");
+  }
+  let demo2 = ()=>{
+    a.current.click();
+
+  }
+
+  let delStu = (obj)=>{
+    setData(()=>{
+      return (
+        data.filter(val=>val != obj)
+      )
+    })
+  }
   return (
     <>
       <div className='container'>
@@ -53,6 +86,29 @@ const Dashboard = () => {
                 
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            
+            {/* <button onClick={demo1} ref={a} className='btn btn-info'>TEST</button>
+            <button onClick={demo2} className='btn btn-dark'>OK</button> */}
+
+            <table>
+              <tbody>
+                {
+                  data.map((x, n)=>{
+                    return(
+                      <tr>
+                        <td>{n+1}</td>
+                        <td>{x.name}</td>
+                        <td><button onClick={()=>delStu(x)}>delete</button></td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

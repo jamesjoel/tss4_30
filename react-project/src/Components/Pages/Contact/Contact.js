@@ -1,8 +1,14 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import Box from '../../Shared/Box';
 
 
 const Contact = () => {
+
+    let info = {
+        city : "Mumbai",
+        para : "sdfg sdfg sdfg sdfg sdfgsdfg sdfg sdfg sdfg sdfg sdfgsdfgsdfg sdfg sdfg sdfg sdfgsdfgsdfg sdfg sdfg sdfg sdfgsdfgsdfg sdfg sdfg sdfg sdfgsdfgsdfg sdfg sdfg sdfg sdfgsdfgsdfg sdfg sdfg sdfg sdfgsdfgsdfg sdfg sdfg sdfg sdfgsdfg"
+      }
 
     let [product, setProduct] = useState([]);
     let [showPreloader, setShowPreloader] = useState(false);
@@ -20,6 +26,7 @@ const Contact = () => {
         
         <div className="popular-items section-padding30">
             <div className="container">
+                <Box hello={info}/>
                 <button onClick={show} className='btn btn-sm btn-info'>Show { showPreloader ? (<img src='/assets/img/pre.gif' style={{height : "30px"}}/>) : ''}</button>
                 <table className='table table-dark'>
                     <thead>
