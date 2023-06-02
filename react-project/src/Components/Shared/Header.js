@@ -48,7 +48,7 @@ const Header = () => {
                                     {
                                         allCate.map(x=>{
                                             return(
-                                                <LiTag list={x}/>
+                                                <LiTag key={x._id} list={x}/>
                                             )
                                         })
                                     }

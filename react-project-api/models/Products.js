@@ -8,7 +8,8 @@ let ProductSchema = mongoose.Schema({
     category : String,
     detail : String,
     discount : Number,
-    quantity : Number
+    quantity : Number,
+    image : String
 })
 
 module.exports = mongoose.model("product", ProductSchema);

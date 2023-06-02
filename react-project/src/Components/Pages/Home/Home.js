@@ -1,32 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductBox from '../../Shared/ProductBox'
 import H1 from '../../Shared/H1'
+import axios from 'axios'
+import API from '../../../Constants/ApiUrl'
 
 const Home = () => {
-
-  let product = [
-    {
-        path : "assets/img/gallery/popular1.png",
-        title : "Sony",
-        price : 1250.00
-    },
-    {
-        path : "assets/img/gallery/popular2.png",
-        title : "I-Phone",
-        price : 50000.00
-    },
-    {
-        path : "assets/img/gallery/popular3.png",
-        title : "Samsung",
-        price : 47000.00
-    },
-    {
-        path : "assets/img/gallery/popular4.png",
-        title : "HTC",
-        price : 30000.00
-    }
-  ]
-
+    let [product, setProduct] = useState([]);
+    useEffect(()=>{
+        axios.get(`${API}product`).then(result=>{
+            setProduct(result.data);
+          })
+    }, [])
 
   return (
     <>
@@ -50,7 +34,7 @@ const Home = () => {
                         product.map(x=>{
                             return(
                                 
-                                <ProductBox product={x}/>
+                                <ProductBox key={x._id} product={x}/>
                             )
                         })
                     }

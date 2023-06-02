@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
@@ -16,6 +16,7 @@ let productSchema = Yup.object({
 
 const Product = () => {
   let navigate = useNavigate();
+  let file = useRef();
   let [allCate, setAllCate] = useState([]);
     
   useEffect(()=>{
@@ -33,8 +34,16 @@ const Product = () => {
     validationSchema : productSchema,
     initialValues : { title : "", price : "", detail : "", category : "", discount : "", quantity : "" },
     onSubmit : (formdata)=>{
+
+      // console.log(file.current.files[0]);
+      let image = file.current.files[0];
+      let fm = new FormData();
+
+      fm.append("image", image);
+      fm.append("formdata", JSON.stringify(formdata));
+
       // console.log(formdata)
-      axios.post(`${API}product`, formdata).then(result=>{
+      axios.post(`${API}product`, fm).then(result=>{
         // console.log(result.data);
         navigate("/admin/product/list")
       })
@@ -65,6 +74,11 @@ const Product = () => {
               errors.price && touched.price ? errors.price : '' 
             }
             </small>
+          </div>
+          <div className="form-group">
+            <label htmlFor="">Product Image</label>
+            <input type='file' ref={file}  className='form-control' />
+            
           </div>
           <div className="form-group">
             <label htmlFor="">Detail</label>
@@ -124,3 +138,14 @@ const Product = () => {
 }
 
 export default Product
+/*
+
+[
+  {
+    "name" : "Rohit",
+    "age" : 25
+  }
+]
+
+
+*/

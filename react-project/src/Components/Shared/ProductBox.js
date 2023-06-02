@@ -6,7 +6,7 @@ const ProductBox = (props) => {
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                     <div className="single-popular-items mb-50 text-center">
                         <div className="popular-img">
-                            <img src={props.product.path} alt="" />
+                            <img src="assets/img/gallery/card1.png" alt="" />
                             <div className="img-cap">
                                 <span>Add to cart</span>
                             </div>
