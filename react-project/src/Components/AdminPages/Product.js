@@ -31,7 +31,7 @@ const Product = () => {
   },[])
 
   let {handleSubmit, handleChange, errors, touched} = useFormik({
-    validationSchema : productSchema,
+    // validationSchema : productSchema,
     initialValues : { title : "", price : "", detail : "", category : "", discount : "", quantity : "" },
     onSubmit : (formdata)=>{
 

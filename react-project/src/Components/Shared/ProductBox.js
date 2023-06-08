@@ -6,17 +6,20 @@ const ProductBox = (props) => {
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                     <div className="single-popular-items mb-50 text-center">
                         <div className="popular-img">
-                            <img src="assets/img/gallery/card1.png" alt="" />
+                            <img style={{height : "250px"}} src={'http://localhost:3001/upload-images/'+props.product.image} alt="" />
                             <div className="img-cap">
-                                <span>Add to cart</span>
+                                <span>Detail</span>
                             </div>
                             <div className="favorit-items">
-                                <span className="flaticon-heart"></span>
+                                <span className='badge badge-danger'>{props.product.discount}%</span>
                             </div>
                         </div>
                         <div className="popular-caption">
                             <h3><a href="product_details.html">{props.product.title}</a></h3>
-                            <span>$ {props.product.price}</span>
+                            <span style={{textDecoration : "line-through"}}>$ {props.product.price}</span>
+                            <span>$ {
+                                    props.product.price - (props.product.price*props.product.discount/100)
+                                }</span>
                         </div>
                     </div>
                 </div>

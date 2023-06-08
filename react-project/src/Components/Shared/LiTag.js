@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const LiTag = (props) => {
   return (
     <>
-        <li key={props.list._id}><NavLink to=""> {props.list.name}</NavLink></li>
+        <li key={props.list._id}><NavLink to={'/category/'+props.list.name}> {props.list.name}</NavLink></li>
     </>
   )
 }

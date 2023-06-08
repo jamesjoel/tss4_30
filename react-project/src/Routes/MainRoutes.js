@@ -19,6 +19,7 @@ import AdminLogin from '../Components/AdminPages/AdminLogin'
 import AdminLogout from '../Components/AdminPages/AdminLogout'
 import CategoryList from '../Components/AdminPages/CategoryList'
 import ProductList from '../Components/AdminPages/ProductList'
+import ViewCategory from '../Components/Pages/ViewCategory/ViewCategory'
 
 const MainRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const MainRoutes = () => {
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />
                     <Route path='help' element={<Help />} />
+                    <Route path='category/:cate' element={<ViewCategory />} />
                     <Route path='logout' element={<Logout />} />
                     <Route path='profile' element={<Profile />} />
               </Route>

@@ -1,6 +1,8 @@
 const routes = require("express").Router();
 const Product = require("../models/Products");
 const path = require("path");
+const uni = require("random-strings")
+
 
 routes.post("/", async(req, res)=>{
     
@@ -9,18 +11,25 @@ routes.post("/", async(req, res)=>{
     
     var formdata = JSON.parse(req.body.formdata);
     var image = req.files.image;
-    formdata.image = image.name;
+    var oldname = image.name;  // 1.jpg
+    var arr = oldname.split("."); // [1, jpg]
+    var ext = arr[arr.length-1]; // jpg
+    var uniname = uni.base64(20); // CDVART5421sdfg5sd4fg
+    var newname = uniname+"."+ext; //CDVART5421sdfg5sd4fg.jpg
 
-    // console.log(path.resolve()+"/assets/upload-images/");
-    await image.mv(path.resolve()+"/assets/upload-images/"+image.name);
-
-
+    formdata.image = newname;
+    await image.mv(path.resolve()+"/assets/upload-images/"+newname);
     await Product.create(formdata);
-
     res.send({ success : true});
 })
 routes.get("/", async(req, res)=>{
     var result = await Product.find();
+    res.send(result);
+})
+
+routes.get("/:cate", async(req, res)=>{
+    var cate = req.params.cate;
+    var result = await Product.find({category : cate});
     res.send(result);
 })
 
