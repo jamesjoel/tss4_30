@@ -20,6 +20,7 @@ import AdminLogout from '../Components/AdminPages/AdminLogout'
 import CategoryList from '../Components/AdminPages/CategoryList'
 import ProductList from '../Components/AdminPages/ProductList'
 import ViewCategory from '../Components/Pages/ViewCategory/ViewCategory'
+import Pagination from '../Components/AdminPages/Pagination'
 
 const MainRoutes = () => {
   return (
@@ -43,6 +44,7 @@ const MainRoutes = () => {
                   <Route path="product/list" element={<ProductList />} />
                   <Route path="category/add" element={<Category />} />
                   <Route path="category/list" element={<CategoryList />} />
+                  <Route path="pagination" element={<Pagination />} />
                   <Route path="logout" element={<AdminLogout />} />
               </Route>
         </Routes>
