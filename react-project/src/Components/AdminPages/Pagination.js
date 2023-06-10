@@ -4,7 +4,7 @@ import axios from 'axios';
 const Pagination = () => {
 
     let [city, setCity] = useState([]);
-    let [cityPerPage, setCityPerPage] = useState(10);
+    let [cityPerPage, setCityPerPage] = useState(100);
     let [total, setTotal] = useState(0);
     let [pagenum, setPageNum] = useState([]);
     let [skip, setSkip] = useState(0);
@@ -50,20 +50,20 @@ const Pagination = () => {
                 <h4>City Per Page : {cityPerPage}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Total  Record : {total}</h4>
             <ul className='pagination my-3'>
 
-                <li className='page-item'>
-                <button className='page-link' onClick={()=>getCity(currentPage-1)}>Next</button>
+                <li className={'page-item '+(currentPage==1 ? 'disabled' : '')}>
+                <button className='page-link' onClick={()=>getCity(currentPage-1)}>Prev</button>
                 </li>
                 {
                     pagenum.map(x=>{
                         return(
-                        <li key={x} className='page-item'>
+                        <li key={x} className={'page-item ' + (currentPage==x ? 'active' : '')}>
                             <button onClick={()=>getCity(x)} className='page-link' href=''>{x}</button>
                         </li> 
                         )
                     })
                 }
 
-                <li className='page-item'>
+                <li className={'page-item '+(currentPage==pagenum.length ? 'disabled' : '')}>
                     <button className='page-link' onClick={()=>getCity(currentPage+1)}>Next</button>
                 </li>
 

@@ -12,6 +12,7 @@ routes.get("/pagination/:x/:y", async(req, res)=>{
     var skip = req.params.y; // 400
 
     var result = await City.find().skip(skip).limit(cityperpage)
+    // .find().skip(10).limit(10)
     res.send(result);
 })
 
@@ -22,6 +23,25 @@ routes.get("/total", async(req, res)=>{
     res.send({ total : result });
 })
 
+
+
+
+routes.get("/pagination2/:x", async (req, res)=>{
+    let a = req.params.x;
+    var result = await City.find().limit(a);
+    res.send(result);
+})
+
+
+routes.get("/statecity", async (req, res)=>{
+    var result = await City.distinct("state");
+    res.send(result);
+})
+routes.get("/statecity/:a", async (req, res)=>{
+    var x = req.params.a;
+    var result = await City.find({ state : x});
+    res.send(result);
+})
 
 
 
