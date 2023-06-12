@@ -3,6 +3,7 @@ import ProductBox from '../../Shared/ProductBox'
 import H1 from '../../Shared/H1'
 import axios from 'axios'
 import API from '../../../Constants/ApiUrl'
+import Hello from '../../Shared/Hello'
 
 const Home = () => {
     let [product, setProduct] = useState([]);
@@ -16,7 +17,7 @@ const Home = () => {
     <>
     <div className="popular-items section-padding30">
             <div className="container">
-                
+                <Hello name="rohit" age="20"/>
 
 
                 <div className="row justify-content-center">

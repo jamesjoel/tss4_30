@@ -3,6 +3,7 @@ import Shipping from '../../Shared/Shipping'
 import axios from 'axios';
 import API from '../../../Constants/ApiUrl';
 import Box from '../../Shared/Box';
+import Hello from '../../Shared/Hello';
 
 const About = () => {
 
@@ -28,6 +29,7 @@ const About = () => {
     <>
       <div  className="popular-items section-padding30">
             <div className="container">
+              <Hello name="amar"></Hello>
               <Box hello={info}/>
               
               {/* <button onClick={getData} className='btn btn-primary'>OK</button> */}
