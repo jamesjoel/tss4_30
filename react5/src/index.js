@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App4 from './App4';
-import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
+import App from './App';
 
-const store = configureStore({
-  preloadedState : "rohit",
-  reducer : (data)=>{
-    return data;
-  }
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit';
+import StudentSlice from './StudentSlice';
+
+let store = configureStore({
+  reducer : StudentSlice
 })
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App4 />
+      <App />
     </Provider>
   </React.StrictMode>
 );

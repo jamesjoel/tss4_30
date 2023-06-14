@@ -1,56 +1,27 @@
-import React, {useContext, createContext} from 'react'
+import React from 'react'
+import Header from './Header'
+import List from './List'
+import Form from './Form'
+import DeleteStu from './DeleteStu'
 
-const Data = createContext();
+import { useDispatch } from 'react-redux'
+import { fetch } from './StudentSlice'
 
 const App = () => {
-  let name = "Aman";
+  let disp = useDispatch();
+
+  disp(fetch(["vijay", "rohit", "neeraj"]))
+
   return (
     <>
-      <h2>This is App Component {name}</h2>
-      <Data.Provider value={name}>
-        <Box1/>
-      </Data.Provider>
+      <Header />
+      <div style={{backgroundColor : "#000"}}>
+          <List />
+          <Form />
+          <DeleteStu />
+      </div>
     </>
   )
 }
-
-const Box1 = ()=>{
-  return(
-    <div style={{height : "500px", width : "500px", backgroundColor : "blue"}}>
-      <h3>Box 1</h3>
-      <Box2 />
-    </div>
-  )
-}
-
-const Box2 = ()=>{
-  let x = useContext(Data);
-  return(
-    <div style={{height : "400px", width : "400px", backgroundColor : "green"}}>
-      <h3>Box 2 {x}</h3>
-      <Box3 />
-    </div>
-  )
-}
-
-const Box3 = ()=>{
-  return(
-    <div style={{height : "300px", width : "300px", backgroundColor : "yellow"}}>
-      <h3>Box 3</h3>
-      <Box4 />
-    </div>
-  )
-}
-const Box4 = ()=>{
-
-  let name = useContext(Data);
-
-  return(
-    <div style={{height : "200px", width : "200px", backgroundColor : "pink"}}>
-      <h3>Box 4 {name}</h3>
-    </div>
-  )
-}
-
 
 export default App
