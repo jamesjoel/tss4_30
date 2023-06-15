@@ -1,6 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { add } from '../../redux/CartSlice'
 
 const ProductBox = (props) => {
+    let disp = useDispatch();
+    let addToCart = (a)=>{
+        disp(add(a));
+    }
+
   return (
     <>
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -8,7 +15,7 @@ const ProductBox = (props) => {
                         <div className="popular-img">
                             <img style={{height : "250px"}} src={'http://localhost:3001/upload-images/'+props.product.image} alt="" />
                             <div className="img-cap">
-                                <span>Detail</span>
+                                <span onClick={()=>addToCart(props.product)}>Add To Cart</span>
                             </div>
                             <div className="favorit-items">
                                 <span className='badge badge-danger'>{props.product.discount}%</span>

@@ -23,6 +23,7 @@ import ViewCategory from '../Components/Pages/ViewCategory/ViewCategory'
 import Pagination from '../Components/AdminPages/Pagination'
 import Pagination2 from '../Components/AdminPages/Pagination2'
 import CityState from '../Components/AdminPages/CityState'
+import Cart from '../Components/Pages/Cart/Cart'
 
 const MainRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const MainRoutes = () => {
               <Route path='' element={<UserLayout />}>
                     <Route path='' element={<Home />} />
                     <Route path='about' element={<About />} />
+                    <Route path='cart' element={<Cart />} />
                     <Route path='contact' element={<Contact />} />
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />

@@ -17,7 +17,7 @@ const Home = () => {
     <>
     <div className="popular-items section-padding30">
             <div className="container">
-                <Hello name="rohit" age="20"/>
+                
 
 
                 <div className="row justify-content-center">

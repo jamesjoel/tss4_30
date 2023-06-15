@@ -3,8 +3,14 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import API from '../../Constants/ApiUrl'
 import LiTag from './LiTag'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+
+    let cart = useSelector(x => x);
+
+
+
 
     let [isLoggedIn, setIsLoggedIn] = useState(false);
     let [name, setName] = useState("");
@@ -97,7 +103,9 @@ const Header = () => {
                                    <span className="flaticon-search"></span>
                                </div>
                            </li>
-                           <li><a href="cart.html"><span className="flaticon-shopping-cart"></span></a> </li>
+                           <li>
+                            <NavLink style={{color : "#000"}} to="/cart"><span className="flaticon-shopping-cart"></span>My Cart ({cart.length})</NavLink>
+                           </li>
                        </ul>
                    </div>
                </div>
