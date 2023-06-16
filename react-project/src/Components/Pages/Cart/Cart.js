@@ -4,7 +4,7 @@ import { removeAll, removeOne } from '../../../redux/CartSlice'
 
 const Cart = () => {
     let disp = useDispatch();
-    let cart = useSelector(x=>x);
+    let cart = useSelector(x=>x.CartSlice);
     let totalPrice = 0;
     let totalDiscount = 0;
 

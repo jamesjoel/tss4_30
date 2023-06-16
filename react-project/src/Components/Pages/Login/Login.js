@@ -4,42 +4,18 @@ import API from '../../../Constants/ApiUrl'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { useDispatch } from 'react-redux'
+import { add } from '../../../redux/UserAuthSlice'
 
 let loginSchema = Yup.object({
     email : Yup.string().required("Insert Your Email Id"),
     password : Yup.string().required("Insert Your Password")
 })
-
-
 const Login = () => {
-
+    let disp = useDispatch();
     let navigate = useNavigate();
-
-
-
-
-
     let [showMsg, setShowMsg] = useState(false);
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
     let [passMsg, setPassMsg] = useState(false);
-
     let {handleChange, handleSubmit, errors, touched} = useFormik({
         validationSchema : loginSchema,
         initialValues : { email : "", password : ""},
@@ -50,6 +26,7 @@ const Login = () => {
                     let token = result.data.token;
                     localStorage.setItem("token", token);
                     localStorage.setItem("displayname", result.data.dispname)
+                    disp(add());
                     navigate("/");
                 }
     

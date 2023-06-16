@@ -4,21 +4,21 @@ import axios from 'axios'
 import API from '../../Constants/ApiUrl'
 import LiTag from './LiTag'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { add } from '../../redux/UserAuthSlice'
 
 const Header = () => {
 
-    let cart = useSelector(x => x);
-
-
-
-
+    let cart = useSelector(x => x.CartSlice);
+    
     let [isLoggedIn, setIsLoggedIn] = useState(false);
     let [name, setName] = useState("");
     let [allCate, setAllCate] = useState([]);
-
+    let disp = useDispatch();
     useEffect(()=>{
         if(localStorage.getItem("token"))
         {
+            disp(add());
             setIsLoggedIn(true);
             setName(localStorage.getItem("displayname"));
         }
@@ -29,6 +29,7 @@ const Header = () => {
 
     },[])
 
+    let demo = useSelector(x => x.UserAuthSlice);
 
   return (
     <>
@@ -62,7 +63,7 @@ const Header = () => {
                                    </ul>
                                </li> 
                                 {
-                                    isLoggedIn ? (
+                                    demo.check ? (
                                         <>
                                         <li><NavLink to="/profile">Profile</NavLink></li>
                                         <li><NavLink to="/logout">Logout</NavLink></li>

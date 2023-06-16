@@ -3,10 +3,13 @@ import { useFormik } from 'formik'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import API from '../../Constants/ApiUrl';
+import { useDispatch } from 'react-redux'
+import { add } from '../../redux/AdminAuthSlice'
 
 const AdminLogin = () => {
 
     let navigate = useNavigate();
+    let disp = useDispatch();
 
 
     useEffect(()=>{
@@ -23,6 +26,7 @@ const AdminLogin = () => {
             axios.post(`${API}admin/auth`, formdata).then(result=>{
                 if(result.data.success==true){
                     localStorage.setItem("nimda", result.data.token);
+                    disp(add());
                     navigate("/admin/dashboard");
                 }
                 if(result.data.errType==1)

@@ -1,12 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { add } from '../../redux/AdminAuthSlice'
+
+
 
 const Header = () => {
   let [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(()=>{
+  let disp = useDispatch();
+
+  useEffect(()=>{ // working only when refresh (f5)
     if(localStorage.getItem('nimda')){
+      disp(add());
       setIsLoggedIn(true)
     }else{
       setIsLoggedIn(false);
@@ -14,6 +21,7 @@ const Header = () => {
   }, [])
 
 
+  let hello = useSelector(x=>x.AdminAuthSlice);
   return (
     <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,7 +32,7 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 
           {
-            isLoggedIn ? (<div className="navbar-nav">
+            hello.check ? (<div className="navbar-nav">
             
                 <ul className='nav'>
                   <li className='nav-item'>
