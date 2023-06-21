@@ -4,6 +4,8 @@ import Home from './components/Home'
 import Albums from './components/Albums'
 import Header from './shared/Header'
 import Student from './components/Student'
+import Teacher from './components/Teacher'
+import Employee from './components/Employee'
 const App2 = () => {
   return (
     <>
@@ -12,6 +14,9 @@ const App2 = () => {
             <Route path='' element={<Home />} />
             <Route path='albums' element={<Albums />} />
             <Route path='student' element={<Student />} />
+            <Route path='teacher' element={<Teacher />} />
+            <Route path='employee' element={<Employee />} />
+
         </Routes>
 
 

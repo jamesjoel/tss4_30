@@ -15,6 +15,7 @@ const Header = () => {
     }, [])
 
     let album = useSelector(x=>x.AlbumSlice);
+    let teacher = useSelector(x=>x.TeacherSlice);
 
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -26,7 +27,13 @@ const Header = () => {
                 <NavLink className="nav-link" to="/student">Student</NavLink>
             </li>
             <li className="nav-item">
+                <NavLink className="nav-link" to="/teacher">Teacher ({teacher.length})</NavLink>
+            </li>
+            <li className="nav-item">
                 <NavLink className="nav-link" to="/albums">Albums ({album.length})</NavLink>
+            </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="/employee">Employee</NavLink>
             </li>
         </ul>
         </nav>

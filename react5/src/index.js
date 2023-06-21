@@ -6,9 +6,11 @@ import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
 import AlbumSlice from './redux/AlbumSlice';
+import TeacherSlice from './redux/TeacherSlice';
+import EmployeeSlice from './redux/EmployeeSlice';
 
 let allRed = combineReducers({
-  AlbumSlice
+  AlbumSlice, TeacherSlice, EmployeeSlice
 })
 
 let store = configureStore({
