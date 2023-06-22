@@ -1,0 +1,44 @@
+{
+  "inbox": [
+    {
+      "id": 1,
+      "sender": "deepak@gmail.com",
+      "subject": "Hello",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi rem, optio, ea at ut sed ullam esse, consequuntur impedit consectetur odio! Placeat dolore doloremque itaque, sed molestias veniam ipsum recusandae?",
+      "date": "06/02/2023",
+      "readStatus": 0
+    },
+    {
+      "id": 2,
+      "sender": "asha@gmail.com",
+      "subject": "Resume",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi rem, optio, ea at ut sed ullam esse, consequuntur impedit consectetur odio! Placeat dolore doloremque itaque, sed molestias veniam ipsum recusandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi rem, optio, ea at ut sed ullam esse, consequuntur impedit consectetur odio! Placeat dolore doloremque itaque, sed molestias veniam ipsum recusandae?",
+      "date": "10/04/2023",
+      "readStatus": 0
+    },
+    {
+      "id": 3,
+      "sender": "aman@gmail.com",
+      "subject": "Resume",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi rem, optio, ea at ut sed ullam esse, consequuntur impedit consectetur odio! Placeat dolore doloremque itaque, sed molestias veniam ipsum recusandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi rem, optio, ea at ut sed ullam esse, consequuntur impedit consectetur odio! Placeat dolore doloremque itaque, sed molestias veniam ipsum recusandae?",
+      "date": "10/04/2023",
+      "readStatus": 1
+    },
+    {
+      "id": 4,
+      "sender": "amazon@amazon.com",
+      "subject": "Amazon Web Services",
+      "body": "Join us at AWS Innovate on October 20. Learn the tools, frameworks, and best practices to accelerate your modernization and unlock faster innovation, speed up time to market, and lower total cost of ownership.",
+      "date": "19/06/2023",
+      "readStatus": 1
+    },
+    {
+      "id": 5,
+      "sender": "zoom@amazon.com",
+      "subject": "Zoom",
+      "body": "Join us at AWS Innovate on October 20. Learn the tools, frameworks, and best practices to accelerate your modernization and unlock faster innovation, speed up time to market, and lower total cost of ownership.",
+      "date": "20/06/2023",
+      "readStatus": 0
+    }
+  ]
+}
