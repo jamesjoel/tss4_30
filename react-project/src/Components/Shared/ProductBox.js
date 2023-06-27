@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { add } from '../../redux/CartSlice'
+import { APIPath } from '../../Constants/ApiUrl'
 
 const ProductBox = (props) => {
     let disp = useDispatch();
@@ -13,7 +14,7 @@ const ProductBox = (props) => {
       <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                     <div className="single-popular-items mb-50 text-center">
                         <div className="popular-img">
-                            <img style={{height : "250px"}} src={'http://localhost:3001/upload-images/'+props.product.image} alt="" />
+                            <img style={{height : "250px"}} src={ `${APIPath}upload-images/${props.product.image}`} alt="" />
                             <div className="img-cap">
                                 <span onClick={()=>addToCart(props.product)}>Add To Cart</span>
                             </div>

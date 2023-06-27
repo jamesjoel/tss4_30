@@ -34,12 +34,12 @@ const Header = () => {
           {
             hello.check ? (<div className="navbar-nav">
             
-                <ul className='nav'>
+                <ul className='nav navbar-nav'>
                   <li className='nav-item'>
-                    <NavLink className="nav-item nav-link" to="/admin/dashboard">Dashboard</NavLink>
+                    <NavLink className="nav-link" to="/admin/dashboard">Dashboard</NavLink>
                   </li>
                   <li className='nav-item dropdown'>
-                    <NavLink className='nav-link dropdown-toggle' to="/admin/product" data-toggle="dropdown">Product</NavLink>
+                    <NavLink className='nav-link dropdown-toggle' to="#" data-toggle="dropdown">Product</NavLink>
                     <div className='dropdown-menu'>
 
                       <NavLink className="dropdown-item" to="/admin/product/list">List</NavLink>
@@ -47,7 +47,7 @@ const Header = () => {
                     </div>
                   </li>
                   <li className='nav-item dropdown'>
-                    <NavLink className='nav-link dropdown-toggle' to="/admin/category" data-toggle="dropdown">Category</NavLink>
+                    <NavLink className='nav-link dropdown-toggle' to="#" data-toggle="dropdown">Category</NavLink>
                     <div className='dropdown-menu'>
 
                       <NavLink className="dropdown-item" to="/admin/category/list">List</NavLink>
@@ -62,6 +62,9 @@ const Header = () => {
                   </li>
                   <li className='nav-item'>
                   <NavLink className="nav-item nav-link" to="/admin/city-state">City-State</NavLink>
+                  </li>
+                  <li className='nav-item'>
+                  <NavLink className="nav-item nav-link" to="/admin/myproduct">My-Product</NavLink>
                   </li>
                   <li className='nav-item'>
                   <NavLink className="nav-item nav-link" to="/admin/logout">Logout</NavLink>

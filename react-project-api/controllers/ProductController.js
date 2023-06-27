@@ -18,7 +18,7 @@ routes.post("/", async(req, res)=>{
     var newname = uniname+"."+ext; //CDVART5421sdfg5sd4fg.jpg
 
     formdata.image = newname;
-    await image.mv(path.resolve()+"/assets/upload-images/"+newname);
+    await image.mv(path.resolve()+"/build/upload-images/"+newname);
     await Product.create(formdata);
     res.send({ success : true});
 })

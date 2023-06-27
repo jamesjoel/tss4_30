@@ -24,6 +24,7 @@ import Pagination from '../Components/AdminPages/Pagination'
 import Pagination2 from '../Components/AdminPages/Pagination2'
 import CityState from '../Components/AdminPages/CityState'
 import Cart from '../Components/Pages/Cart/Cart'
+import MyProduct from '../Components/AdminPages/MyProduct'
 
 const MainRoutes = () => {
   return (
@@ -51,6 +52,7 @@ const MainRoutes = () => {
                   <Route path="pagination" element={<Pagination />} />
                   <Route path="pagination2" element={<Pagination2 />} />
                   <Route path="city-state" element={<CityState />} />
+                  <Route path="myproduct" element={<MyProduct />} />
                   <Route path="logout" element={<AdminLogout />} />
               </Route>
         </Routes>
