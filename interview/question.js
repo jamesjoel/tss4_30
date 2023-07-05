@@ -5,29 +5,35 @@ JavaScript
     3. types of variables. 
     4. all datatypes
     5. what is object?
-    6. what is array ?
-    7. destructuring ?
-    8. sperad ope
+    6. what is array?
+    7. destructuring?
+    8. sperad ope (...)
     9. rest parameter
     10. what is function and arrow function
-    11. what is callback function
+    11. what is callback, callback hell function
     12. promise
     13. async and await
     14. hoisting
     15. Symbol() datatype.
+
     16. Heigher Order function (forEach, map, filter, reduce)
     17. diff bwt == and ===?
     18. what is template literls
 
+
 NodeJS
     1. What is NodeJS and History
     2. REPL in Node.
+
+        Read Evaluate Print Loop
+
+
     3. what is modules in Node
     4. NPM
     5. require() and module.exports
     6. what is ExpressJS and Where to use.
-    7. Detail Routing.
-    8. parameterized URL.
+    7. Detail Routing. (MVC)
+    8. parameterized URL.  
 
 MongoDB
     1. How to Connect
@@ -58,6 +64,40 @@ ReactJS
 
 
 
+
+    demo(5);
+    demo(2, 4);
+    demo(4, 3, 5)
+    demo(1, 4, 2, 3, 4, 8);
+
+
+    let demo=(...arr)=>{
+        let ans = 1;
+        arr.forEach(x=>{
+            ans *= x;
+        })   
+        cons.log(ans);
+    }
     
 
+
+
+    Teach. Skills
+        Languages : HTML, HTML5, CSS, JavaScript
+        Freamwork : Bootstrap v5, Express, Mongoose, React v18 
+        React NPM : react-router-dom, formik, yup, axios etc.
+        Database : MongoDB
+        Authentication : JWT Auth
+        Platform : NodeJS
+        Data Store : Redux
+        Demo Project : E-Commorce Website
+  
+        
+
+
+
+
+        app.js                           demo.js
+       var x = rewq("./demo")          var a = "rohit"
+                                        modu.exp = a;
 */
